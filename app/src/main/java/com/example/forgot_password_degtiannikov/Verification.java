@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.forgot_password_degtiannikov;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -16,8 +16,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.forgot_password_degtiannikov.CallbackResponse;
-import com.example.forgot_password_degtiannikov.R;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -55,7 +53,7 @@ public class Verification extends AppCompatActivity {
         for (EditText BthNumber : BthNumbers)
             BthNumber.addTextChangedListener(TextChangedListener);
 
-        TimerTask = new com.example.myapplication.MyTimerTask(this, tvText, tvSendMail);
+        TimerTask = new MyTimerTask(this, tvText, tvSendMail);
         Timer.schedule(TimerTask, 0, 1000);
 
         SendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);

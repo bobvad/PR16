@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.forgot_password_degtiannikov;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
-import com.example.forgot_password_degtiannikov.CallbackResponse;
-
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public EditText tbUserEmail;
     public Drawable BackgroundRed, Background;
     public Context Context;
-    public SendCommon SendCommon;
+    public SendCommon sendCommon;
     public String Code;
 
     @Override
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         BackgroundRed = ContextCompat.getDrawable(this, R.drawable.edittext_background_red);
         Background = ContextCompat.getDrawable(this, R.drawable.edittext_background);
         tbUserEmail = findViewById(R.id.user_email);
-        SendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);
+        sendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);
         Context = this;
     }
 
@@ -49,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Не верно введён Email.", Toast.LENGTH_SHORT).show();
         } else {
             tbUserEmail.setBackground(Background);
-            if (SendCommon.getStatus() != AsyncTask.Status.RUNNING)
-                SendCommon.execute();
+            if (sendCommon.getStatus() != AsyncTask.Status.RUNNING)
+                sendCommon.execute();
         }
     }
 
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void returner(String Response) {
             Toast.makeText(Context, "Ошибка сервера", Toast.LENGTH_SHORT).show();
-            SendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);
+            sendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);
         }
     };
 

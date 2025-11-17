@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.forgot_password_degtiannikov;
 
 import android.app.Activity;
 import android.view.View;
