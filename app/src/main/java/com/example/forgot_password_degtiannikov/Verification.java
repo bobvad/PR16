@@ -63,7 +63,7 @@ public class Verification extends AppCompatActivity {
         tbUserEmail.setText(arguments.get("Email").toString());
 
         BackgroundRed = ContextCompat.getDrawable(this, R.drawable.edittext_background_red);
-        Background = ContextCompat.getDrawable(this, R.drawable.edittext_background);
+        Background = ContextCompat.getDrawable(this, R.drawable.edittext_backgrounds);
     }
 
     TextWatcher TextChangedListener = new TextWatcher() {

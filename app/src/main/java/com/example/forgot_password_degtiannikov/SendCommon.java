@@ -6,14 +6,14 @@ import android.util.Log;
 import android.widget.EditText;
 
 import org.jsoup.Jsoup;
-import org.w3c.dom.Document;
+import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
 @SuppressLint("StaticFieldLeak")
 public class SendCommon extends AsyncTask<Void, Void, String> {
 
-    public String Url = "http://192.168.0.109:5000/api/CommonController/Send";
+    public String Url = "http://10.111.20.114:5000/api/CommonController/Send";
     public String Code;
     public EditText TbEmail;
     CallbackResponse CallbackResponse;
@@ -32,7 +32,7 @@ public class SendCommon extends AsyncTask<Void, Void, String> {
                     .ignoreContentType(true)
                     .get();
 
-            Code = Response.getTextContent();
+            Code = Response.text();
         } catch (IOException e) {
             Log.e("Errors", e.getMessage());
             return null;

@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BackgroundRed = ContextCompat.getDrawable(this, R.drawable.edittext_background_red);
-        Background = ContextCompat.getDrawable(this, R.drawable.edittext_background);
+        Background = ContextCompat.getDrawable(this, R.drawable.edittext_backgrounds);
         tbUserEmail = findViewById(R.id.user_email);
         sendCommon = new SendCommon(tbUserEmail, CallbackResponseCode, CallbackResponseError);
         Context = this;
     }
 
     public Boolean IsValid(String Value) {
-        Pattern sPattern = Pattern.compile("^[\\w{2,20}]@[\\w{2,10}]\\.[\\w{2,4}]$");
+        Pattern sPattern = Pattern.compile("^\\w{2,20}@\\w{2,10}\\.\\w{2,4}$");
         return sPattern.matcher(Value).matches();
     }
 
